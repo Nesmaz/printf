@@ -38,7 +38,6 @@ int _printf(const char *format, ...)
 				{
 					specifiers[j].handler(args, &count);
 					break;
-					count++;
 				}
 			}
 			if (j == sizeof(specifiers) / sizeof(specifier_t))
