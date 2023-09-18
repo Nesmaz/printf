@@ -58,5 +58,12 @@ int handle_int(va_list args);
 
 int handle_bin(va_list args);
 
+int handle_oct(va_list args);
+
+int handle_un(va_list args);
+
+int handle_x(va_list args);
+
+int handle_X(va_list args);
 
 #endif

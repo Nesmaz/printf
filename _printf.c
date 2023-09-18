@@ -20,6 +20,10 @@ int _printf(const char *format, ...)
 		{"i", handle_int},
 		{"d", handle_int},
 		{"b", handle_bin},
+		{"o", handle_oct},
+		{"u", handle_un},
+		{"x", handle_x},
+		{"X", handle_X},
 		{NULL, NULL},
 	};
 	va_list args;
