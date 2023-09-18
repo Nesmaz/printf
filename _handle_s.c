@@ -3,7 +3,7 @@
 #include "main.h"
 
 /**
- * handle_s - handles the %s format specifier
+ * handle_str - handles the %s format specifier
  * @args: va_list of arguments
  * Return: the length of the string
 */

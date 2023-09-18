@@ -3,7 +3,7 @@
 #include <stdarg.h>
 
 /**
- * _handle_c - Handles the %c format specifier
+ * handle_ch - Handles the %c format specifier
  * @args: A va_list of arguments
  * Return: count of printed characters which is 1
 */

@@ -6,6 +6,7 @@
 #include <stddef.h>
 #include <stdarg.h>
 #include <limits.h>
+#include <unistd>
 
 /**
  * struct specifier_t - Format specifier
@@ -28,7 +29,16 @@ typedef struct specifier_t
 
 /*Functions */
 
-int _putchar(char ch);
+
+/**
+ * _putchar - writes the character to stdout
+ * @ch: The character to print
+ * Return: (1) on success, otherwise -1
+ */
+int _putchar(char ch)
+{
+	return write(1, &ch, 1);
+}
 
 int _printf(const char *format, ...);
 
