@@ -11,7 +11,7 @@
 /**
  * struct specifier_t - Format specifier
  * @specifier: The format specifier character
- * @f: The function pointer to the handler
+ * @handler: The function pointer to the handler
  *
  * description: a struct that maps a format specifier character to
  *		a corresponding handler function.
@@ -32,7 +32,9 @@ typedef struct specifier_t
 int _putchar(char ch);
 int _printf(const char *format, ...);
 
-int process_format(const char *format, specifier_t conversion_specifiers[], va_list args);
+int process_format(const char *format,
+		specifier_t conversion_specifiers[],
+		va_list args);
 
 /*Handlers */
 
@@ -41,5 +43,9 @@ int handle_ch(va_list args);
 int handle_str(va_list args);
 
 int handle_percent(va_list args);
+
+int handle_int(va_list args);
+
+int _handle_i(int n);
 
 #endif
