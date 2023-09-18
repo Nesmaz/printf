@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			++i;
+			i++;
 			for (j = 0; j < sizeof(specifiers) / sizeof(specifier_t); j++)
 			{
 				if (format[i] == specifiers[j].specifier)
