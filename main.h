@@ -36,6 +36,16 @@ int process_format(const char *format,
 		specifier_t conversion_specifiers[],
 		va_list args);
 
+int _handle_i(int n);
+
+int _handle_bin(unsigned int n);
+
+int l_base(unsigned int n, int b);
+
+char *_rev(char *str);
+
+int w_base(char *out);
+
 /*Handlers */
 
 int handle_ch(va_list args);
@@ -46,6 +56,7 @@ int handle_percent(va_list args);
 
 int handle_int(va_list args);
 
-int _handle_i(int n);
+int handle_bin(va_list args);
+
 
 #endif
