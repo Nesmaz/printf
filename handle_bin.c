@@ -9,7 +9,8 @@
 */
 int handle_bin(va_list args)
 {
-	int n, i, len;
+	unsigned int n;
+	int i, len;
 	char *str, *rev;
 
 	n = va_arg(args, unsigned int);
@@ -38,7 +39,6 @@ int handle_bin(va_list args)
 		return (-1);
 	w_base(rev);
 	free(str);
-	/*free(rev);*/
 	return (len);
 }
 
