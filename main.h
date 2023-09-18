@@ -6,7 +6,7 @@
 #include <stddef.h>
 #include <stdarg.h>
 #include <limits.h>
-#include <unistd>
+#include <unistd.h>
 
 /**
  * struct specifier_t - Format specifier
@@ -29,17 +29,7 @@ typedef struct specifier_t
 
 /*Functions */
 
-
-/**
- * _putchar - writes the character to stdout
- * @ch: The character to print
- * Return: (1) on success, otherwise -1
- */
-int _putchar(char ch)
-{
-	return write(1, &ch, 1);
-}
-
+int _putchar(char ch);
 int _printf(const char *format, ...);
 
 int process_format(const char *format, specifier_t conversion_specifiers[], va_list args);
@@ -51,6 +41,5 @@ int handle_ch(va_list args);
 int handle_str(va_list args);
 
 int handle_percent(va_list args);
-
 
 #endif
