@@ -46,6 +46,8 @@ char *_rev(char *str);
 
 int w_base(char *out);
 
+void write_buffer(char *buffer, int *buffer_i, int *count);
+
 /*Handlers */
 
 int handle_ch(va_list args);
