@@ -1,13 +1,13 @@
 #include <stdio.h>
-#include "main.h"
-#include <stddef.h>
 #include <stdarg.h>
+#include <stddef.h>
+#include "main.h"
 
 /**
- * _printf - Receives the main string and all the necessary parameters to
- * print a formatted string
- * @format: A string containing all the desired characters
- * Return: A total count of the characters printed
+ * _printf - produces output according to a format
+ * @format: the string that specifies the format of the output
+ * @...: the variadic arguments to be passed
+ * Return: the number of printed characters
  */
 
 int _printf(const char *format, ...)
@@ -22,7 +22,9 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	if (format == NULL)
+	{
 		return (-1);
+	}
 
 	va_start(args, format);
 	count = process_format(format, conversion_specifiers, args);
