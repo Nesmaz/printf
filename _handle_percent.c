@@ -5,13 +5,13 @@
 /**
  * handle_percent - handles the %% format specifier
  * @args:  va_list of arguments
- * @count: pointer to the count of characters printed so far
+ * Return: count of printed characters which is one
 */
 
-void handle_percent(va_list args, int *count)
+int handle_percent(va_list args)
 {
 	(void)args;
 
 	_putchar('%');
-	(*count)++;
+	return (1);
 }

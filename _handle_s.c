@@ -5,16 +5,20 @@
 /**
  * handle_s - handles the %s format specifier
  * @args: va_list of arguments
- * @count: pointer to the count of characters printed so far
+ * Return: the length of the string
 */
 
-void handle_s(va_list args, int *count)
+int handle_str(va_list args)
 {
-	char *s = va_arg(args, char *);
+	char *s = "";
+	int j, count = 0;
 
-	for (; *s != '\0'; s++)
+	s = va_arg(args, char *);
+
+	for (j = 0; s[j] != '\0'; j++)
 	{
-		_putchar(*s);
-		(*count)++;
+		_putchar(s[j]);
+		count++;
 	}
+	return (count);
 }

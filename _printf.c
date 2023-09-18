@@ -2,48 +2,31 @@
 #include "main.h"
 #include <stddef.h>
 #include <stdarg.h>
+
 /**
- * _printf - produces output according to a format
- * @format: the string that specifies the format of the output
- * @...: the variadic arguments to be passed
- * Return: the number of printed characters
-*/
+ * _printf - Receives the main string and all the necessary parameters to
+ * print a formatted string
+ * @format: A string containing all the desired characters
+ * Return: A total count of the characters printed
+ */
+
 int _printf(const char *format, ...)
 {
-	int i, count = 0;
-	size_t j;
+	int count;
+	specifier_t conversion_specifiers[] = {
+		{"c", handle_ch},
+		{"s", handle_str},
+		{"%", handle_percent},
+		{NULL, NULL},
+	};
 	va_list args;
 
-	specifier_t specifiers[] = {
-		{'c', handle_c},
-		{'s', handle_s},
-		{'%', handle_percent},
-	};
-	va_start(args, format);
 	if (format == NULL)
 		return (-1);
-	for (i = 0; format[i] != '\0'; i++)
-	{
-		if (format[i] != '%')
-		{
-			_putchar(format[i]);
-			count++;
-		}
-		else
-		{
-			i++;
-			for (j = 0; j < sizeof(specifiers) / sizeof(specifier_t); j++)
-			{
-				if (format[i] == specifiers[j].specifier)
-				{
-					specifiers[j].handler(args, &count);
-					break;
-				}
-			}
-			if (j == sizeof(specifiers) / sizeof(specifier_t))
-				return (-1);
-		}
-	}
+
+	va_start(args, format);
+	count = process_format(format, conversion_specifiers, args);
 	va_end(args);
 	return (count);
 }
+

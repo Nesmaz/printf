@@ -5,11 +5,12 @@
 #include <stdlib.h>
 #include <stddef.h>
 #include <stdarg.h>
+#include <limits.h>
 
 /**
  * struct specifier_t - Format specifier
  * @specifier: The format specifier character
- * @handler: The function to handle the format specifier
+ * @f: The function pointer to the handler
  *
  * description: a struct that maps a format specifier character to
  *		a corresponding handler function.
@@ -18,9 +19,12 @@
 
 typedef struct specifier_t
 {
-	char specifier;
-	void (*handler)(va_list args, int *count);
+	char *specifier;
+	int (*handler)(va_list);
+
 } specifier_t;
+
+
 
 /*Functions */
 
@@ -28,12 +32,15 @@ int _putchar(char ch);
 
 int _printf(const char *format, ...);
 
+int process_format(const char *format, specifier_t conversion_specifiers[], va_list args);
+
 /*Handlers */
 
-void handle_c(va_list args, int *count);
+int handle_ch(va_list args);
 
-void handle_s(va_list args, int *count);
+int handle_str(va_list args);
 
-void handle_percent(va_list args, int *count);
+int handle_percent(va_list args);
+
 
 #endif
