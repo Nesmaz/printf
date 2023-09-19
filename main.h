@@ -8,6 +8,8 @@
 #include <limits.h>
 #include <unistd.h>
 
+#define BUFFER_SIZE 1024
+
 /**
  * struct specifier_t - Format specifier
  * @specifier: The format specifier character
@@ -45,8 +47,6 @@ int l_base(unsigned int n, int b);
 char *_rev(char *str);
 
 int w_base(char *out);
-
-void write_buffer(char *buffer, int *buffer_i, int *count);
 
 /*Handlers */
 

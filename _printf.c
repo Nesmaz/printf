@@ -2,6 +2,9 @@
 #include <stdarg.h>
 #include "main.h"
 #include <stddef.h>
+#include <assert.h>
+
+#define BUFFER_SIZE 1024
 /**
  * _printf - produces output according to a format
  * @format: the string that specifies the format of the output
@@ -24,23 +27,13 @@ int _printf(const char *format, ...)
 		{"X", handle_X},
 		{NULL, NULL},
 	};
-	va_list args;
-	char buffer[1024];
-	int buffer_i = 0;
+	va_list args;;
 
 	if (format == NULL)
 		return (-1);
 	va_start(args, format);
 	count = process_format(format, conversion_specifiers, args);
 
-	for (i = 0; format[i] != '\0'; i++)
-	{
-		if (buffer_i == 1024)
-			write_buffer(buffer, &buffer_i, &count);
-		buffer[buffer_i++] = format[i];
-	}
-
-	write_buffer(buffer, &buffer_i, &count);
 	va_end(args);
 	return (count);
 }
