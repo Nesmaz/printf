@@ -10,10 +10,8 @@
 
 int handle_str(va_list args)
 {
-	char *s = "";
+	char *s = va_arg(args, char *);
 	int j, count = 0;
-
-	s = va_arg(args, char *);
 
 	for (j = 0; s[j] != '\0'; j++)
 	{
