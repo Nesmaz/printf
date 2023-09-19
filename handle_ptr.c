@@ -12,7 +12,7 @@
 
 int handle_ptr(va_list args)
 {
-	int j;
+	int j, count = 0;
 	void *addr = va_arg(args, void *);
 	unsigned long int i = (unsigned long int)addr;
 	char buffer[20], *str = &buffer[19];
@@ -20,10 +20,11 @@ int handle_ptr(va_list args)
 
 	if (addr == NULL)
 	{
-		str = "NULL";
-		for (j = 0; str[j] != '\0'; j++)
+		char *s = "NULL";
+
+		for (j = 0; s[j] != '\0'; j++)
 		{
-			_putchar(str[j]);
+			_putchar(s[j]);
 		}
 		return (j);
 	}
@@ -35,12 +36,14 @@ int handle_ptr(va_list args)
 
 	_putchar('0');
 	_putchar('x');
+	count = 2;
 	while (*str)
 	{
 		_putchar(*str++);
+		count++;
 	}
 
-	return (str - buffer);
+	return (count);
 
 
 }
