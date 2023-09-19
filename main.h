@@ -48,6 +48,8 @@ char *_rev(char *str);
 
 int w_base(char *out);
 
+char to_hex(int n);
+
 /*Handlers */
 
 int handle_ch(va_list args);
@@ -67,5 +69,7 @@ int handle_un(va_list args);
 int handle_x(va_list args);
 
 int handle_X(va_list args);
+
+int handle_S(va_list args);
 
 #endif

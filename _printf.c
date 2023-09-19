@@ -13,7 +13,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, count;
+	int count;
 	specifier_t conversion_specifiers[] = {
 		{"c", handle_ch},
 		{"s", handle_str},
@@ -25,9 +25,10 @@ int _printf(const char *format, ...)
 		{"u", handle_un},
 		{"x", handle_x},
 		{"X", handle_X},
+		{"S", handle_S},
 		{NULL, NULL},
 	};
-	va_list args;;
+	va_list args;
 
 	if (format == NULL)
 		return (-1);
