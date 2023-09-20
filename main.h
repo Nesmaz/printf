@@ -82,4 +82,6 @@ int handle_S(va_list args);
 
 int handle_ptr(va_list args);
 
+int handle_r(va_list args);
+
 #endif
