@@ -1,3 +1,4 @@
+/**
 #include <stdio.h>
 #include "main.h"
 /**
@@ -8,6 +9,7 @@
  * the character is a flag, and 0 otherwise.
  * Return: 1 if the character is a flag, 0 otherwise
  */
+/**
 int is_flag(char c, const char *flags)
 {
 	int i;
@@ -29,6 +31,7 @@ int is_flag(char c, const char *flags)
  * Return: The index of the specifier that was handled,
  *	or -1 if no specifier was handled
 */
+/**
 int handle_specifiers(const char *format, int i,
 		specifier_t conversion_specifiers[], va_list args, int *count)
 {
@@ -46,3 +49,4 @@ int handle_specifiers(const char *format, int i,
 		}
 	} return (-1);
 }
+*/
