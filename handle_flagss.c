@@ -1,4 +1,3 @@
-/**
 #include <stdio.h>
 #include "main.h"
 /**
@@ -9,7 +8,6 @@
  * the character is a flag, and 0 otherwise.
  * Return: 1 if the character is a flag, 0 otherwise
  */
-/**
 int is_flag(char c, const char *flags)
 {
 	int i;
@@ -49,4 +47,3 @@ int handle_specifiers(const char *format, int i,
 		}
 	} return (-1);
 }
-*/
