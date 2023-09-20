@@ -28,7 +28,7 @@
 
 typedef struct specifier_t
 {
-	char *specifier;
+	const char *specifier;
 	int (*handler)(va_list);
 
 } specifier_t;
@@ -59,6 +59,10 @@ char to_hex(int n);
 int handle_flag(const char *format, int *i);
 
 int is_flag(char c, const char *flags);
+
+int handle_specifiers(const char *format, int i,
+		specifier_t conversion_specifiers[],
+		va_list args, int *count);
 
 /*Handlers */
 
