@@ -29,7 +29,6 @@ int is_flag(char c, const char *flags)
  * Return: The index of the specifier that was handled,
  *	or -1 if no specifier was handled
 */
-/**
 int handle_specifiers(const char *format, int i,
 		specifier_t conversion_specifiers[], va_list args, int *count)
 {
