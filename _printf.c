@@ -2,18 +2,17 @@
 #include <stdarg.h>
 #include "main.h"
 #include <stddef.h>
-#include <assert.h>
 
 #define BUFFER_SIZE 1024
 /**
  * _printf - produces output according to a format
  * @format: the string that specifies the format of the output
- * @...: the variadic arguments to be passed
  * Return: the number of printed characters
  */
 int _printf(const char *format, ...)
 {
-	int count;
+	int count = 0;
+
 	specifier_t conversion_specifiers[] = {
 		{"c", handle_ch},
 		{"s", handle_str},
@@ -29,6 +28,7 @@ int _printf(const char *format, ...)
 		{"p", handle_ptr},
 		{NULL, NULL},
 	};
+
 	va_list args;
 
 	if (format == NULL)
@@ -37,5 +37,6 @@ int _printf(const char *format, ...)
 	count = process_format(format, conversion_specifiers, args);
 
 	va_end(args);
+
 	return (count);
 }

@@ -10,6 +10,12 @@
 
 #define BUFFER_SIZE 1024
 
+#define FLAG_MINUS (1 << 0)
+#define FLAG_PLUS (1 << 1)
+#define FLAG_SPACE (1 << 2)
+#define FLAG_ZERO (1 << 3)
+#define FLAG_HASH (1 << 4)
+
 /**
  * struct specifier_t - Format specifier
  * @specifier: The format specifier character
@@ -34,9 +40,7 @@ typedef struct specifier_t
 int _putchar(char ch);
 int _printf(const char *format, ...);
 
-int process_format(const char *format,
-		specifier_t conversion_specifiers[],
-		va_list args);
+int process_format(const char *format, specifier_t conversion_specifiers[], va_list args);
 
 int _handle_i(int n);
 
@@ -56,7 +60,7 @@ int is_flag(char c, const char *flags);
 
 int handle_specifiers(const char *format, int i,
 		specifier_t conversion_specifiers[],
-		va_list args, int *count);
+		va_list args);
 
 /*Handlers */
 
