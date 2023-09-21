@@ -9,6 +9,7 @@
  * @i: A pointer to the current position in the format string
  * Return: An integer where each bit represents a different flag
 */
+/**
 int handle_flag(const char *format, int *i)
 {
 	int flags = 0;
@@ -51,3 +52,4 @@ int handle_flag(const char *format, int *i)
 	}
 	return (flags);
 }
+*/
