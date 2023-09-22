@@ -32,30 +32,43 @@ int process_format(const char *format,
 	{
 		if (format[i] == '%')
 		{
-			for (j = 0; conversion_specifiers[j].specifier != NULL; j++)
+			if (format[i + 1] == 'h')
 			{
-				if (format[i + 1] ==  conversion_specifiers[j].specifier[0])
+				v = handle_short(args);
+				i++;
+			}
+			else if (format[i + 1] == 'l')
+			{
+				v = handle_long(args);
+				i++;
+			}
+			else
+			{
+				for (j = 0; conversion_specifiers[j].specifier != NULL; j++)
 				{
-					v =  conversion_specifiers[j].handler(args);
-					if (v == -1)
+					if (format[i + 1] ==  conversion_specifiers[j].specifier[0])
+					{
+						v =  conversion_specifiers[j].handler(args);
+						if (v == -1)
 						return (-1);
-					count += v;
+						count += v;
 
-					break;
+						break;
+					}
 				}
-			}
-			if (conversion_specifiers[j].specifier == NULL && format[i + 1] != ' ')
-			{
-				if (format[i + 1] != '\0')
+				if (conversion_specifiers[j].specifier == NULL && format[i + 1] != ' ')
 				{
-					_putchar(format[i]);
-					_putchar(format[i + 1]);
-					count += 2;
-				}
-				else
+					if (format[i + 1] != '\0')
+					{
+						_putchar(format[i]);
+						_putchar(format[i + 1]);
+						count += 2;
+					}
+					else
 					return (-1);
-			}
+				}
 			i++;
+			}
 		}
 		else
 		{
