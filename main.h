@@ -56,14 +56,6 @@ int w_base(char *out);
 
 char to_hex(int n);
 
-int handle_flag(const char *format, int *i);
-
-int is_flag(char c, const char *flags);
-
-int handle_specifiers(const char *format, int i,
-		specifier_t conversion_specifiers[],
-		va_list args, int *count);
-
 /*Handlers */
 
 int handle_ch(va_list args);

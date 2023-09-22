@@ -9,22 +9,24 @@
  * Return: The count of characters printed
 */
 int process_format(const char *format,
-
 		specifier_t conversion_specifiers[],
 		va_list args)
 {
-	int i, j, count = 0;
+	int i, j, v = 0, count = 0;
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
-			i++;
 			for (j = 0; conversion_specifiers[j].specifier != NULL; j++)
 			{
-				if (format[i] ==  conversion_specifiers[j].specifier[0])
+				if (format[i + 1] ==  conversion_specifiers[j].specifier[0])
 				{
-					count +=  conversion_specifiers[j].handler(args);
+					v +=  conversion_specifiers[j].handler(args);
+					if (v == -1)
+						return (-1);
+					count += v;
+
 					break;
 				}
 			}
@@ -35,11 +37,13 @@ int process_format(const char *format,
 					_putchar(format[i]);
 					_putchar(format[i + 1]);
 					count += 2;
-			} else
+			}
+				else
 				return (-1);
 			}
 			i++;
-			} else
+			}
+		else
 		{
 			_putchar(format[i]);
 			count++;
