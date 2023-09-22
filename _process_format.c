@@ -36,7 +36,7 @@ int process_format(const char *format,
 			{
 				if (format[i + 1] ==  conversion_specifiers[j].specifier[0])
 				{
-					v +=  conversion_specifiers[j].handler(args);
+					v =  conversion_specifiers[j].handler(args);
 					if (v == -1)
 						return (-1);
 					count += v;
@@ -52,12 +52,9 @@ int process_format(const char *format,
 					_putchar(format[i + 1]);
 					count += 2;
 				}
-
-			}
 				else
-				{
 					return (-1);
-				}
+			}
 			i++;
 		}
 		else
